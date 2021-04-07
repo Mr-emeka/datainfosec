@@ -1,10 +1,167 @@
-@use 'variables.scss';
-@use 'utilities.scss';
-@use 'mixins.scss';
-@use 'keyframes.scss';
-@use 'element.scss';
+@import "variables.scss";
+@import "utilities.scss";
+@import "mixins.scss";
+@import "keyframes.scss";
+@import "elements.scss";
+
+@import "./containers/main.scss";
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,700;1,500;1,900&display=swap");
 
 * {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Poppins;
+  p {
+    font-size: 13px;
+  }
+  main {
+    padding: 0 2vw;
+  }
+}
+.feed {
+  border: 1px solid $color-2;
+  &__btn {
+    @extend %btn;
+    cursor: pointer;
+    background: $primary-color;
+    color: $color-2;
+    border: none;
+    outline: none;
+  }
+  &__img {
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+  }
+}
+.feedDetails {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  width: 100%;
+  &__title {
+    text-align: center;
+  }
+  &__img {
+    width: 1028px;
+    height: 400px;
+    object-fit: cover;
+  }
+  section {
+    align-self: center;
+    text-align: left;
+  }
+}
+.feeds {
+  display: grid;
+  justify-content: space-between;
+  grid-template-columns: 1fr 0.3fr;
+  grid-gap: 0.2em 2em;
+  &__search {
+    margin-bottom: 1em;
+  }
+  &__section {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-gap: 1rem;
+    text-align: center;
+    margin-bottom: 2em;
+    div {
+      padding: 0 0.5em;
+      font-size: 16px;
+      @include media-query($medium-down) {
+        padding: 0;
+      }
+    }
+  }
+  @include media-query($medium-down) {
+    grid-template-columns: 1fr;
+  }
+  &__sideMenu {
+    border-left: 2px solid $color-2;
+
+    text-align: center;
+    padding: 0 0 0 0.2em;
+    @include media-query($medium-down) {
+      margin-top: 3em;
+    }
+    .topFeeds {
+      &__text {
+        padding-left: 0.2em;
+      }
+      &__heading {
+        h3 {
+          color: $primary-color;
+        }
+      }
+      &__content {
+        padding: 1em 0;
+        justify-content: space-between;
+        display: flex;
+        text-align: left;
+        @include media-query($medium-down) {
+          justify-content: space-evenly;
+          align-items: center;
+        }
+
+        img {
+          width: auto;
+          object-fit: cover;
+        }
+      }
+    }
+  }
+}
+
+.comment {
+  margin-bottom: 2em;
+  &__container {
+    display: flex;
+    padding: 1em 0;
+    align-items: center;
+    p {
+      margin-left: 0.6em;
+      max-width: 400px;
+      @include media-query($medium-down) {
+        max-width: 240px;
+      }
+    }
+  }
+  &__textArea {
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    @include media-query($medium-down) {
+      max-width: 240px;
+    }
+    textarea {
+      padding: 0.5em 0.3em;
+    }
+  }
+  &__btn {
+    @extend %btn;
+    cursor: pointer;
+    background: $primary-color;
+    color: $color-2;
+    border: none;
+    outline: none;
+  }
+}
+
+.topFeeds {
+  &__img {
+    width: auto;
+    height: 50px;
+  }
+  &__content {
+    bottom: 2px solid $color-2;
+    color: #000;
+  }
+  a {
+    text-decoration: none;
+  }
 }

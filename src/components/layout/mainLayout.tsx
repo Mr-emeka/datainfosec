@@ -1,4 +1,6 @@
 import React from 'react'
+import Header from '../../containers/NavigationMenu'
+import Footer from '../../containers/Footer'
 
 
 export interface IProps {
@@ -6,14 +8,13 @@ export interface IProps {
 }
 
 const MainLayout: React.FC<IProps> = ({ children }) => {
-    return <div>
+    return <>
+        <Header />
         <main>
             {children}
         </main>
-        <aside>
-
-        </aside>
-    </div>
+        <Footer />
+    </>
 }
 
 export default MainLayout;
