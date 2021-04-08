@@ -23,7 +23,7 @@ export class NewsStore {
 
   @action async getFeeds() {
     let response = await fetch(
-      `${baseURL}/all?api_token=${process.env.REACT_APP_NEWS_API_KEY}&locale=us&language=en`
+      `${baseURL}/all?api_token=${process.env.REACT_APP_access_token}&locale=us&language=en`
     );
     let feeds = await response.json();
     runInAction(() => {
@@ -35,7 +35,7 @@ export class NewsStore {
 
   @action async getTopStories() {
     let response = await fetch(
-      `${baseURL}/top?api_token=${process.env.REACT_APP_NEWS_API_KEY}&locale=us&language=en`
+      `${baseURL}/top?api_token=${process.env.REACT_APP_access_token}&locale=us&language=en`
     );
     let feeds = await response.json();
     runInAction(() => {
@@ -47,7 +47,7 @@ export class NewsStore {
 
   @action async getNewsById(uuid: string) {
     let response = await fetch(
-      `${baseURL}/uuid/${uuid}?api_token=${process.env.REACT_APP_NEWS_API_KEY}&locale=us&language=en`
+      `${baseURL}/uuid/${uuid}?api_token=${process.env.REACT_APP_access_token}&locale=us&language=en`
     );
     let news = await response.json();
     this.news = news;
