@@ -14,11 +14,12 @@ jobs:
         run: npm install
       - name: Run Tests
         env:
+          REACT_APP_news_api_key: ${{ secrets.REACT_APP_news_api_key  }}
           CI: false
         run: npm test
       - name: Build
         env:
-          REACT_APP_news_api_key: ${{ secrets.REACT_APP_news  }}
+          REACT_APP_news_api_key: ${{ secrets.REACT_APP_news_api_key  }}
           CI: false
         run: npm run build
       - name: Archive Production Artifact
