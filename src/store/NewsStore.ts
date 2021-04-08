@@ -25,9 +25,7 @@ export class NewsStore {
     let response = await fetch(
       `${baseURL}/all?api_token=${process.env.REACT_APP_NEWS_API_KEY}&locale=us&language=en`
     );
-    // let news: NewsProps[] = await response.json();
     let feeds = await response.json();
-    console.log(feeds);
     runInAction(() => {
       this.feeds = feeds.data;
     });
@@ -39,9 +37,7 @@ export class NewsStore {
     let response = await fetch(
       `${baseURL}/top?api_token=${process.env.REACT_APP_NEWS_API_KEY}&locale=us&language=en`
     );
-    // let news: NewsProps[] = await response.json();
     let feeds = await response.json();
-    console.log(feeds);
     runInAction(() => {
       this.topFeeds = feeds.data;
     });
@@ -54,9 +50,6 @@ export class NewsStore {
       `${baseURL}/uuid/${uuid}?api_token=${process.env.REACT_APP_NEWS_API_KEY}&locale=us&language=en`
     );
     let news = await response.json();
-    console.log(news);
-    runInAction(() => {
-      this.news = news;
-    });
+    this.news = news;
   }
 }

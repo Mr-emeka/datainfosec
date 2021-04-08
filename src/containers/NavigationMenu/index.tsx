@@ -80,7 +80,6 @@ a{
 
 }
   @media (max-width: 768px) {
-    /* position: fixed; */
     top: 0;
     left: 0;
     background-color:#000;
@@ -90,8 +89,6 @@ a{
   }
 `;
 const Header = styled.header`
- /* position:sticky;
- top:0; */
 background-color: #000;
 
 `

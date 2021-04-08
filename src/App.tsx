@@ -1,12 +1,14 @@
 import React from 'react';
 import './sass/app.scss'
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-
 // Pages
-import Feeds from './pages/FeedsPage'
-import FeedView from './pages/FeedViewPage'
+const Feeds = React.lazy(() =>
+  import("./pages/FeedsPage"),
+);
 
-
+const FeedView = React.lazy(() =>
+  import("./pages/FeedViewPage"),
+);
 function App() {
   return (
     <Router>

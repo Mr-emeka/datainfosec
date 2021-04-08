@@ -39,7 +39,7 @@ const NavbarLinks = () => {
     <>
       <NavItem activeClassName="active" to="/">
         Feeds
-      </NavItem>      
+      </NavItem>
     </>
   );
 };

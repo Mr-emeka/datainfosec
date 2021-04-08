@@ -1,13 +1,10 @@
 import React, { createContext, ReactNode, useContext } from 'react'
 import RootStore from '../store'
 
-// holds a reference to the store (singleton)
 let store: RootStore
 
-// create the context
 export const StoreContext = createContext<RootStore | undefined>(undefined);
 
-// create the provider component
 export function RootStoreProvider({ children }: { children: ReactNode }) {
     //only create the store once ( store is a singleton)
     const root = store ?? new RootStore()

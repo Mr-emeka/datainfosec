@@ -3,12 +3,16 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { RootStoreProvider } from "./providers";
+import Loading from './components/custom/LoadingScreen'
+
 
 ReactDOM.render(
   <React.StrictMode>
-    <RootStoreProvider>
-      <App />
-    </RootStoreProvider>
+    <React.Suspense fallback={<Loading />}>
+      <RootStoreProvider>
+        <App />
+      </RootStoreProvider>
+    </React.Suspense>
   </React.StrictMode>,
   document.getElementById('root')
 );

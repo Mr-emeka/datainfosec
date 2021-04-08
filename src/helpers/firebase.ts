@@ -1,7 +1,7 @@
-import app from 'firebase/app';
-import 'firebase/auth';
-import 'firebase/database';
-import 'firebase/storage';
+import app from "firebase/app";
+import "firebase/auth";
+import "firebase/database";
+import "firebase/storage";
 
 const {
   REACT_APP_apiKey,
@@ -11,7 +11,6 @@ const {
   REACT_APP_storageBucket,
   REACT_APP_messagingSenderId,
   REACT_APP_appId,
-  // REACT_APP_measurementId,
 } = process.env;
 
 const config = {
@@ -22,7 +21,6 @@ const config = {
   storageBucket: REACT_APP_storageBucket,
   messagingSenderId: REACT_APP_messagingSenderId,
   appId: REACT_APP_appId,
-  // measurementId: REACT_APP_measurementId,
 };
 
 class Firebase {
@@ -35,11 +33,6 @@ class Firebase {
     this.db = app.database();
     this.bucket = app.storage();
   }
-
 }
 
-export const {
-  auth,
-  bucket,
-  db,
-} = new Firebase();
+export const { auth, bucket, db } = new Firebase();
