@@ -3,7 +3,6 @@ on:
   push:
     branches:
       - main
-
 jobs:
   build:
     name: Build
@@ -16,12 +15,12 @@ jobs:
       - name: Run Tests
         env:
           CI: false
-          REACT_APP_NEWS_API_KEY: ${{ secrets.REACT_APP_access_token  }}
+          REACT_APP_NEWS_API_KEY: ${{ secrets.REACT_APP_ACCESS_TOKEN  }}
         run: npm test
       - name: Build
         env:
           CI: false
-          REACT_APP_NEWS_API_KEY: ${{ secrets.REACT_APP_access_token  }}
+          REACT_APP_NEWS_API_KEY: ${{ secrets.REACT_APP_ACCESS_TOKEN  }}
         run: npm run build
       - name: Archive Production Artifact
         uses: actions/upload-artifact@v2
